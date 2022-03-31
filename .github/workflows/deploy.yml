@@ -14,7 +14,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          repository: https://github.com/fingerprintjs/fingerprintjs-pro-cloudflare-worker.git
+          repository: fingerprintjs/fingerprintjs-pro-cloudflare-worker
+          ref: master
       - name: Use Node.js
         uses: actions/setup-node@v1
         with:
