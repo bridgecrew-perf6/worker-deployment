@@ -12,11 +12,14 @@ jobs:
     runs-on: ubuntu-latest
     name: Build & Deploy
     steps:
-      - uses: actions/checkout@v2      
+      - uses: actions/checkout@v2
+        with:
+          path: 'env'
       - uses: actions/checkout@v2
         with:
           repository: fingerprintjs/fingerprintjs-pro-cloudflare-worker
           ref: master
+          path: worker
       - name: Use Node.js
         uses: actions/setup-node@v1
         with:
@@ -24,7 +27,7 @@ jobs:
       - name: Show files
         run: 'ls -lah'
       - name: Show env
-        run: 'cat environment'
+        run: 'cat env/environment'
       - name: Publish
         uses: cloudflare/wrangler-action@1.2.0
         with:
