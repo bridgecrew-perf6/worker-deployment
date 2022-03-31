@@ -20,6 +20,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: "12.x"
+      - name: Show files
+        run: 'ls -lah'
       - name: Publish
         uses: cloudflare/wrangler-action@1.2.0
         with:
