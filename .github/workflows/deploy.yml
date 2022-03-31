@@ -28,11 +28,10 @@ jobs:
         run: 'ls -lah'
       - name: Show env
         run: 'cat env/environment'
-      - name: Cd to worker
-        run: 'cd worker'
       - name: Publish
         uses: cloudflare/wrangler-action@1.2.0
         with:
+          preCommands: cd worker
           apiToken: ${{ secrets.CF_API_TOKEN }}
         env:
           CF_ACCOUNT_ID: ${{secrets.CF_ACCOUNT_ID}}
